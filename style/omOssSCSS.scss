@@ -1,0 +1,183 @@
+// Scss for omOss.html
+
+@import "universalSCSS";	// Importerar separat dokument med universell SCSS
+
+// Main fördelar allt innehåll
+main{
+	// Grid utnyttjas
+	display: grid;
+	grid-template-areas:	// Gridytor blir given namn
+		"pageHeading pageHeading"
+		"subHeading1 subHeading1"
+		"picture1 textContainer1"
+		"picture2 textContainer2"
+		"subHeading2 subHeading2"
+		"textContainer3 picture3"
+		"textContainer4 picture4"
+		"subHeading3 subHeading3"
+		"textContainer5 textContainer5"
+		"picture5 picture5"
+		"textContainer6 textContainer6"
+		;
+	column-gap: 1em;
+	margin: 3em;
+	align-items: center;
+
+	// Om oss-sidans huvudrubrik
+	h2{
+		grid-area: pageHeading;	// Tilldelas ytan längst upp i grid
+	}
+	
+	h3{
+		opacity: 0;	// Är gömd fram till att javascript aktiveras
+		margin-top: 1em;
+		margin-bottom: 0.25em;
+	}
+	
+	picture{
+		opacity: 0;	// Är gömd fram till att javascript aktiveras
+		width: 100%;
+		height: 100%;
+		
+		// Bilder ges border-radius på hörn fri från kontakt med andra element
+		&:nth-of-type(1) img, &:nth-of-type(3) img{
+			border-top-left-radius: 2em;
+			border-top-right-radius: 2em;
+			border-bottom: none;
+		}
+		
+		&:nth-of-type(2) img, &:nth-of-type(4) img{
+			border-bottom-left-radius: 2em;
+			border-bottom-right-radius: 2em;
+		}
+
+		img{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;	// Anpassar bilden för centrering i rutan utan stretchning
+			border: solid 1em $greyColor;
+			box-shadow: $boxShadow;
+		}
+	}
+	
+	.textContainer{
+		opacity: 0;	// Är gömd fram till att javascript aktiveras
+		width: 100%;
+		padding: 1em;
+		background-color: $articleColor;
+		box-shadow: $boxShadow;
+		
+		// Textytor ges border-radius på hörn fri från kontakt med andra element
+		&:nth-of-type(1), &:nth-of-type(3), &:nth-of-type(5){
+			border-top-left-radius: 1em;
+			border-top-right-radius: 1em;
+		}
+		
+		&:nth-of-type(2), &:nth-of-type(4), &:nth-of-type(6){
+			border-bottom-left-radius: 1em;
+			border-bottom-right-radius: 1em;
+		}
+
+		p{
+			&:nth-of-type(1){
+				margin-bottom: 1em;	// Skapar mellanrum i divider, ökar läsbarhet
+			}
+		}
+	}
+
+	// Positionerar för att ligga sida vid sida, blir annars separerad i höjdled
+	.upper{
+		align-self: flex-end;
+	}
+
+	.lower{
+		align-self: flex-start;
+	}
+
+	// Tilldelas av javascript om ett element scrollats över, förblir då synlig.
+	.scrolled{
+		opacity: 1;
+	}
+	
+	// SCSS-for-loopar används för att tilldela grid-area till alla element i main (Undantag: sidans huvudrubrik)
+
+	// Rubriker
+	$headings: (subHeading1, subHeading2, subHeading3);	// Array med gridytornas namn
+	@for $i from 1 through length($headings) {
+		h3:nth-of-type(#{$i}) {
+			grid-area: nth($headings, $i);
+		}
+	}
+
+	// Bilder
+	$pictures: (picture1, picture2, picture3, picture4, picture5);	// Array med gridytornas namn
+	@for $i from 1 through length($pictures) {
+		picture:nth-of-type(#{$i}) {
+			grid-area: nth($pictures, $i);
+		}
+	}
+
+	// textContainers
+	$textContainers: (textContainer1, textContainer2, textContainer3, textContainer4, textContainer5, textContainer6);	// Array med gridytornas namn
+	@for $i from 1 through length($textContainers) {
+		.textContainer:nth-of-type(#{$i}) {
+			grid-area: nth($textContainers, $i);
+		}
+	}
+
+	// Brytpunkter med ändring av main-, picture- och .textContainer-styling
+
+	// En kolumn
+	@media all and (max-width: 1000px){
+		// Innehåll fördelas vertikalt i en kolumn
+		grid-template-areas:
+			"pageHeading"
+			"subHeading1"
+			"picture1"
+			"textContainer1"
+			"picture2"
+			"textContainer2"
+			"subHeading2"
+			"textContainer3"
+			"picture3"
+			"textContainer4"
+			"picture4"
+			"subHeading3"
+			"textContainer5"
+			"picture5"
+			"textContainer6"
+		;
+	
+		// Picture- och .textContainer-styling anpassas för att passa ny ordning i grid
+		picture{
+			&:nth-of-type(2) img, &:nth-of-type(3) img{
+				border-radius: 0;
+			}
+	
+			img{
+				border: solid 1em $greyColor !important;
+			}
+		}
+		
+		.textContainer{
+			&:nth-of-type(1), &:nth-of-type(4){
+				border-radius: 0;
+			}
+		}
+	}
+
+	// Storleksanpassningar för mobil
+	@media all and (max-width: 650px){
+		margin: 1em;
+
+		picture{
+			img{
+				border: solid 0.5em $greyColor !important;
+			}
+		}	
+	}
+}
+
+
+
+

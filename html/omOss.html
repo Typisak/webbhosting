@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">	<!-- Sätter skalan på skärmen -->
+<link rel="stylesheet" href="../style/omOssSCSS.css" type="text/css">
+<script defer src="../javascript/nav.js"></script>	<!-- Defer används för att läsa in javascript efter HTML -->
+<script defer src="../javascript/omOss.js"></script>
+<title>Room with a View - Om oss</title>
+</head>
+
+<body>
+	<div id="wrap">
+		<header>
+
+			<!-- Logga och namnet på företaget längst upp på sidan -->
+			<div class="logo">
+				<img src="#" alt="Logga">
+				<h1>ROOM WITH A VIEW</h1>
+			</div>
+
+			<!-- Navigationsmeny -->
+			<nav>
+				<a href="#" class="logIn">Logga in</a> <!-- Inloggningsknapp -->
+
+				<!-- Hamburgermenyns ikon -->
+				<div class="hamburger">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+
+				<!-- Hamburgermenyns innehåll -->
+				<ul class="navMenu">
+					<li style="--animation-order: 1"><a href="../index.html">Erbjudanden</a></li>
+					<li style="--animation-order: 2"><a href="omOss.html">Om oss</a></li>
+					<li style="--animation-order: 3"><a href="kontakt.html">Kontakt</a></li>
+				</ul>
+			</nav>
+
+		</header>
+
+		<main>
+			<h2>Vilka är vi?</h2>	<!-- Huvudrubrik -->
+
+			<!-- data-slide används för att i javascript bedöma hållet elementet ska animeras -->
+
+			<!-- Segment 1, Företagets tankesätt -->
+			<h3 data-slide="left">Vårat tankesätt</h3>
+
+			<!-- Picture med source används för att byta bild vid olika storlek på skärm
+			Detta förminskar i sin tur dataanvändning vid mindre skärm -->
+			<picture data-slide="left" class="upper">	<!-- Klassen upper används för css-stylad postionering -->
+				<!-- Om oss-sidans bilder har flera brytpunkter för källbyte -->
+				<source media="(min-width: 1000px)" srcset="../Bilder/utsiktTorg700px.jpg">
+				<source media="(min-width: 500px)" srcset="../Bilder/utsiktTorg550px.jpg">
+				<img src="../Bilder/utsiktTorg400px.jpg" alt="utsikt över ett torg">	<!-- Fallback -->
+			</picture>
+
+			<picture data-slide="left" class="lower">	<!-- Klassen upper används för css-stylad postionering -->
+				<source media="(min-width: 1000px)" srcset="../Bilder/loungeutsikt700px.jpg">
+				<source media="(min-width: 500px)" srcset="../Bilder/loungeutsikt550px.jpg">
+				<img src="../Bilder/loungeutsikt400px.jpg" alt="hotellounge med utsikt">
+			</picture>
+
+			<!-- Divider för att innehålla text och tillåta radbrtytning utan att störa gridden -->
+			<div data-slide="right" class="textContainer upper">
+				<p>
+					Tanken bakom vår verksamhet är att erbjuda resenärer en unik och minnesvärd upplevelse genom att hjälpa dem att hitta hotell som inte bara är bekväma och prisvärda, utan också har en enastående utsikt. Vi tror att det finns ett stort antal resenärer som söker mer än bara en vanlig hotellvistelse. För många är utsikten en viktig faktor som kan göra skillnad mellan en bra och en fantastisk resa.
+				</p>
+
+				<p>
+					Därför har vi samlat en lista över hotell som erbjuder enastående utsikt över landskapet, staden eller havet. Vi strävar efter att erbjuda en mångfald av hotellalternativ, från lyxiga femstjärniga hotell till mysiga boutiquehotell, så att det finns något som passar alla preferenser och budgetar.	
+				</p>
+			</div>
+			<div data-slide="right" class="textContainer lower">
+				<p>
+					Vi har samlat in information om hotell från olika källor och använder våra egna kriterier för att bedöma deras utsikt. Vi övervakar också ständigt feedback från våra kunder för att säkerställa att vi endast listar hotell som erbjuder en enastående utsikt och uppfyller våra höga standarder. 
+				</p>
+
+				<p>
+					Vi vill göra det enkelt för våra kunder att hitta de bästa hotellalternativen med en fantastisk utsikt. Därför erbjuder vi en sökfunktion som gör det möjligt för våra kunder att filtrera hotell baserat på deras preferenser. Vi tror att genom att göra det lättare för resenärer att hitta dessa hotell, kan vi hjälpa dem att skapa minnesvärda upplevelser som de kommer att ha med sig resten av livet.
+				</p>
+			</div>
+
+			<!-- Segment 2, Företagets personal -->
+			<h3 data-slide="left">Vår personal</h3>
+
+			<div data-slide="left" class="textContainer upper">
+				<p>
+					På vår webbplats arbetar ett dedikerat team av erfarna och passionerade medarbetare som brinner för att hjälpa resenärer att hitta de bästa hotellen med fantastisk utsikt. Vår personal har en bred erfarenhet inom turism- och hotellbranschen och har arbetat med allt från reseplanering och hotellbokningar till marknadsföring och kundservice.	
+				</p>
+
+				<p>
+					Vi tror att kombinationen av denna erfarenhet och vår passion för att ge våra kunder en unik och minnesvärd upplevelse gör att vi kan erbjuda en utmärkt service. Vi är stolta över att arbeta i ett team där alla är välkomna och uppmuntras att dela sina idéer och synpunkter. Vi tror att mångfald och inkludering är nyckeln till att bygga ett starkt och kreativt team som kan möta utmaningar och skapa innovativa lösningar.
+				</p>
+			</div>
+
+			<div data-slide="left" class="textContainer lower" >
+				<p>
+					Våra medarbetare är engagerade i att göra våra kunder nöjda och vi strävar alltid efter att ge en personlig och vänlig service. Vi är alltid tillgängliga för att svara på frågor och ge råd om hotellalternativ och resplanering. Vi är stolta över att ha ett team som arbetar hårt för att upprätthålla vår höga standard på kvalitet och service.	
+				</p>
+
+				<p>Vi fortsätter att lära oss och utvecklas för att möta våra kunders behov och förbättra deras resaupplevelse. Vårt mål är att göra det enkelt och roligt för våra kunder att hitta de bästa hotellen med fantastisk utsikt, och vårt team är redo att hjälpa dig att göra det möjligt.</p>
+			</div>
+
+			<picture data-slide="right" class="upper">
+				<source media="(min-width: 1000px)" srcset="../Bilder/rum700px.jpg">
+				<source media="(min-width: 500px)" srcset="../Bilder/rum550px.jpg">
+				<img src="../Bilder/rum400px.jpg" alt="ett hotellrum med säng">
+			</picture>
+
+			<picture data-slide="right" class="lower">
+				<source media="(min-width: 1000px)" srcset="../Bilder/restaurang700px.jpg">
+				<source media="(min-width: 500px)" srcset="../Bilder/restaurang550px.jpg">
+				<img src="../Bilder/restaurang400px.jpg" alt="en hotellrestaurang">
+			</picture>
+
+			<!-- Segment 3, Företagets garantier -->
+			<h3 data-slide="left">Våra garantier</h3>
+			<div data-slide="left" class="textContainer">
+				<p>
+					På vår webbplats har vi ett starkt fokus på att erbjuda en trygg och tillförlitlig service för våra kunder. Vi vill att våra kunder ska känna sig säkra när de bokar hotell med fantastisk utsikt hos oss och därför har vi flera garantier och försäkringar som vi erbjuder för att säkerställa en smidig resaupplevelse. En av våra viktigaste garantier är vår ombokningspolicy. Vi förstår att ibland kan resplaner ändras och transport kan bli försenad. Därför erbjuder vi gratis ombokning av hotellbokningar om transporten är försenad. 	
+				</p>
+
+				<p>
+					Vi vill att våra kunder ska känna sig trygga med att boka hotell med oss, även om deras resa inte går som planerat. Vi strävar också efter att erbjuda en högkvalitativ och prisvärd service. Om en kund hittar samma hotell med samma villkor för ett lägre pris på en annan webbplats, matchar vi priset och ger en extra rabatt på bokningen. På så sätt kan våra kunder vara säkra på att de får det bästa möjliga erbjudandet på hotell med fantastisk utsikt.
+				</p>
+			</div>
+			
+			<!-- Större bild längre ned på sidan -->
+			<picture data-slide="right">
+				<source media="(min-width: 1000px)" srcset="../Bilder/loungeutsikt1000px.jpg">
+				<source media="(min-width: 500px)" srcset="../Bilder/loungeutsikt550px.jpg">
+				<img src="../Bilder/loungeutsikt400px.jpg" alt="hotellounge med utsikt">
+			</picture>
+
+			<div data-slide="left" class="textContainer">
+				<p>
+					Vi har också en nöjdhetsgaranti där vi garanterar att våra kunder kommer att vara nöjda med sitt hotell och den utsikt som erbjuds. Om en kund av någon anledning inte är nöjd med sitt hotell, kommer vi att arbeta med dem för att hitta ett annat hotell som bättre uppfyller deras förväntningar. 	
+				</p>
+
+				<p>
+					Vi är stolta över att erbjuda en högkvalitativ service och vi är dedikerade till att göra vår kunds resaupplevelse så smidig och angenäm som möjligt. Våra garantier och försäkringar är en del av detta engagemang, och vi är övertygade om att våra kunder kommer att uppskatta vår insats för att göra deras resa minnesvärd och problemfri.
+				</p>
+			</div>
+
+		</main>
+	</div>
+</body>
+</html>

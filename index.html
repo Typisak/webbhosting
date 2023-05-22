@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">	<!-- Sätter skalan på skärmen -->
+<link rel="stylesheet" href="style/indexSCSS.css" type="text/css">
+<script defer src="javascript/erbjudande.js"></script>	<!-- Defer används för att läsa in javascript efter HTML -->
+<script defer src="javascript/nav.js"></script>
+<title>Room with a View - Erbjudanden</title>
+</head>
+
+<body>
+	<div id="wrap">
+		<header>
+
+			<!-- Logga och namnet på företaget längst upp på sidan -->
+			<div class="logo">
+				<img src="#" alt="Logga">
+				<h1>ROOM WITH A VIEW</h1>
+			</div>
+
+			<!-- Navigationsmeny -->
+			<nav>
+				<a href="#" class="logIn">Logga in</a> <!-- Inloggningsknapp -->
+
+				<!-- Hamburgermenyns ikon -->
+				<div class="hamburger">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+
+				<!-- Hamburgermenyns innehåll -->
+				<ul class="navMenu">
+					<li style="--animation-order: 1"><a href="index.html">Erbjudanden</a></li>
+					<li style="--animation-order: 2"><a href="html/omOss.html">Om oss</a></li>
+					<li style="--animation-order: 3"><a href="html/kontakt.html">Kontakt</a></li>
+				</ul>
+			</nav>
+
+		</header>
+
+		<main>
+
+			<h2>Erbjudanden</h2>	<!-- Huvudrubrik -->
+			<h3>Filtrera sökning</h3>
+
+			<!-- Formulär för filtrering av hotellerbjudanden (har inte givits funktion) -->
+			<form action="#" method="post">
+				<input type="text" name="destination" placeholder="Destination">
+				<input type="text" name="date" placeholder="Datum">
+				<input type="text" name="visitors" placeholder="Resenärer">
+				<input type="submit" name="submit" value="Sök">
+			</form>
+
+			<!-- Innehåller hotellerbjudandets detaljer -->
+			<article>
+				<div class="imageDivider">	<!-- Grid med hotellbilder -->
+					<!-- Picture med source används för att byta bild vid olika storlek på skärm
+					Detta förminskar i sin tur dataanvändning vid mindre skärm -->
+					<picture>
+						<source media="(min-width: 650px)" srcset="Bilder/utsiktTorg550px.jpg">
+						<img src="../Bilder/utsiktTorg400px.jpg" alt="bild i fokus  ">	<!-- Fallback -->
+					</picture>
+
+					<picture class="selection selected">
+						<source media="(min-width: 650px)" srcset="Bilder/utsiktTorg550px.jpg">
+						<img src="../Bilder/utsiktTorg400px.jpg" alt="utsikt från rum"> 
+					</picture>
+
+					<picture class="selection">
+						<source media="(min-width: 650px)" srcset="Bilder/rum550px.jpg">
+						<img src="../Bilder/rum400px.jpg" alt="översiktsbild i rummet">
+					</picture>
+
+					<picture class="selection">
+						<source media="(min-width: 650px)" srcset="Bilder/loungeutsikt550px.jpg">
+						<img src="../Bilder/loungeutsikt400px.jpg" alt="hotellounge med utsikt">
+					</picture>
+
+					<picture class="selection">
+						<source media="(min-width: 650px)" srcset="Bilder/restaurang550px.jpg">
+						<img src="../Bilder/restaurang400px.jpg" alt="restaurang i hotellet">
+					</picture>
+
+					<!-- Bildspelspilar -->
+					<div class="arrowDivider">
+						<div class="arrow left"></div>
+						<div class="arrow right"></div>
+					</div>
+				</div>
+
+				<!-- Innehåller erbjudandets textinformation -->
+				<div class="listDivider">
+					<h3>Hotellnamn</h3>
+					
+					<!-- Lista som grid -->
+					<ul>
+						<li><p>Utsikt över centrum</p></li>
+						<li><p>Nära till turistmål</p></li>
+						<li><p>Två restauranger på hotellet</p></li>
+						<li><p>Stora rum</p></li>
+						<li><p>Daglig städning</p></li>
+						<li><p>Gratis Wi-Fi</p></li>
+						<li><p>Bokningsbar spaavdelning</p></li>
+						<li><p>Affär på anläggningen</p></li>
+						<li><p>Två separata barer</p></li>
+						<li><p>Smart TV med chromecast</p></li>
+						<li><p>Transfer till flygplats</p></li>
+						<li><p>350 meter från tågstationen</p></li>
+					</ul>
+
+					<h4>Kostnad från: 4000 SEK</h4>
+				</div>
+
+				<!-- Innehåller embeddad googlekarta -->
+				<div class="g-mapHolder">
+					<iframe title="Google-karta med hotellets plats" src="https://www.google.com/maps/embed/v1/place?q=Stockholm,+Sverige&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+				</div>
+			</article>
+
+			<!-- Innehåller alternativen för hotellerbjudandet -->
+			<article class="booking">
+				
+				<h3>Bokningsalternativ</h3>
+				<div class="alternativeContainer">
+
+					<div class="alternative">	<!-- Divider med ett alternativ -->
+							<h4>Resande</h4>
+							<p>2</p>
+
+							<h4>Antal rum</h4>
+							<p>2</p>
+
+							<h4>Period</h4>
+							<p>datum</p>
+
+							<h4>Kostnad</h4>
+							<p>4000</p>
+
+							<!-- Bokningsknapp -->
+							<a href="#">Boka</a>
+					</div>
+
+					<div class="alternative">
+							<h4>Resande</h4>
+							<p>2</p>
+
+							<h4>Antal rum</h4>
+							<p>2</p>
+
+							<h4>Period</h4>
+							<p>datum</p>
+
+							<h4>Kostnad</h4>
+							<p>4200</p>
+
+							<a href="#">Boka</a>
+					</div>
+
+					<div class="alternative">
+							<h4>Resande</h4>
+							<p>2</p>
+
+							<h4>Antal rum</h4>
+							<p>1</p>
+
+							<h4>Period</h4>
+							<p>datum</p>
+
+							<h4>Kostnad</h4>
+							<p>4400</p>
+
+							<a href="#">Boka</a>
+					</div>
+
+					<div class="alternative">
+							<h4>Resande</h4>
+							<p>2</p>
+
+							<h4>Antal rum</h4>
+							<p>1</p>
+
+							<h4>Period</h4>
+							<p>datum</p>
+
+							<h4>Kostnad</h4>
+							<p>4700</p>
+
+							<a href="#">Boka</a>
+					</div>
+				</div>
+
+				<!-- Knapp för att växla dropdown-meny -->
+				<div class="readMore" data-alternative="one">
+					<p>Se fler &#9207;</p>
+				</div>
+
+			</article>
+		</main>
+	</div>
+</body>
+</html>

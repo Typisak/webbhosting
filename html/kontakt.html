@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">	<!-- Sätter skalan på skärmen -->
+<link rel="stylesheet" href="../style/kontaktSCSS.css" type="text/css">
+<!-- Import av awesome font -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">	
+<script defer src="../javascript/nav.js"></script>	<!-- Defer används för att läsa in javascript efter HTML -->
+<script defer src="../javascript/kontakt.js"></script>
+<title>Room with a View - Kontakt</title>
+</head>
+
+<body>
+	
+	<div id="wrap">
+		<header>
+
+			<!-- Logga och namnet på företaget längst upp på sidan -->
+			<div class="logo">
+				<img src="#" alt="Logga">
+				<h1>ROOM WITH A VIEW</h1>
+			</div>
+
+			<!-- Navigationsmeny -->
+			<nav>
+				<a href="#" class="logIn">Logga in</a> <!-- Inloggningsknapp -->
+
+				<!-- Hamburgermenyns ikon -->
+				<div class="hamburger">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+
+				<!-- Hamburgermenyns innehåll -->
+				<ul class="navMenu">
+					<li style="--animation-order: 1"><a href="../index.html">Erbjudanden</a></li>
+					<li style="--animation-order: 2"><a href="omOss.html">Om oss</a></li>
+					<li style="--animation-order: 3"><a href="kontakt.html">Kontakt</a></li>
+				</ul>
+			</nav>
+
+		</header>
+	
+		<main>
+
+				<h2>Behöver du hjälp?</h2>	<!-- Huvudrubrik -->
+
+				<!-- Sektion 1, Vanliga frågor -->
+				<h3>Vanliga frågor</h3>
+				<section class="FAQ">
+
+					<article>	<!-- Article innehåller varje fråga med svar och pilikon -->
+						<div class="questionDivider">
+							<h3>Är erbjudandena de billigaste?</h3>	<!-- Fråga -->
+							<div>	<!-- Pilikon stylad med css -->
+								<span></span>
+								<span></span>
+							</div>
+						</div>
+
+						<p>	<!-- Svar -->
+							Alla tillgängliga erbjudanden är de bästa på marknaden. Vi prismatchar om du hittar ett billigare alternativ någon annan stans. 
+						</p>
+					</article>
+
+					<article>
+						<div class="questionDivider">
+							<h3>Vilka garantier finns?</h3>
+							<div>
+								<span></span>
+								<span></span>
+							</div>
+						</div>
+
+						<p>
+							Ett flertal garantier erbjuds. Bland annat ombokning av hotell om transport är sen. Mer information finns på vår Om oss-sida. 
+						</p>
+					</article>
+
+					<article>
+						<div class="questionDivider">
+							<h3>Hur gör jag ett återköp?</h3>
+							<div>
+								<span></span>
+								<span></span>
+							</div>
+						</div>
+
+						<p>
+							Om du har ångrat ditt köp kan du kontakta oss nedan för att återfå dina pengar.
+						</p>
+					</article>
+
+					<article>
+						<div class="questionDivider">
+							<h3>När får jag pengarna efter återköp?</h3>
+							<div>
+								<span></span>
+								<span></span>
+							</div>
+						</div>
+
+						<p>
+							Vid återköp bör pengarna vara tillbaka på kontot efter senast 5 bankdagar. Kontakta oss nedan om problem med överföringen uppstår.
+						</p>
+					</article>
+
+				</section>
+
+				<!-- Sektion 2, Kontakt med kundtjänst -->
+				<h3>Kontakta oss</h3>
+
+				<section class="contact">
+
+					<!-- Divider innehållande kontaktformulär -->
+					<div class="contactForm">
+						<p>
+							Vill du ha hjälp med kontoåterställning, återköp eller något annat? Då är det fritt fram att kontakta oss. Använd främst formuläret eller mejla. Vid brådskande ärenden används telefonnummret.
+						</p>
+
+						<form id="messageForm" action="#" method="post">	<!-- Formuläret har inte givits funktion -->
+							<!-- Inputs för användarens kontaktinformations samt meddelande -->
+							<input required type="text" name="names" placeholder="För- och efternamn">
+							<input required type="email" name="email" placeholder="Mejl (exempel@domän.com)">
+							<input required type="text" name="subject" placeholder="Ämne">
+							<!-- Textarea är inte en vanlig input, länkar istället till formuläret -->
+							<textarea required name="message" form="messageForm" placeholder="Meddelande" maxlength="250"></textarea>
+							<!-- Input för inlämning av meddelande (knapp) -->
+							<input type="submit" name="submit" value="Skicka">
+
+						</form>
+					</div>
+
+					<!-- Divider innehållande företagets kontaktinformation -->
+					<div class="contactInfo">
+
+						<h3>Mejl</h3>
+						<a href="mailto:support@roomwithaview.com">support@roomwithaview.com</a>
+
+						<h3>Telefon</h3>
+						<a href="tel:+46727368002">+46 72 736 80 02</a>
+
+						<!-- Länkar till sociala medier -->
+						<h3>Sociala medier</h3>
+						<div>
+							<a class="fa fa-instagram" href="#"></a>
+							<a class="fa fa-facebook" href="#"></a>
+							<a class="fa fa-twitter" href="#"></a>
+							<a class="fa fa-linkedin" href="#"></a>
+						</div>
+					</div>
+				</section>
+		</main>
+	</div>
+
+</body>
+</html>

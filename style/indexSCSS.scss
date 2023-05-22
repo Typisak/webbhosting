@@ -1,0 +1,289 @@
+// Scss för index.html
+
+@import "universalSCSS";	// Importerar universell SCSS från separat dokument
+
+main{
+	@include flex ($direction: column, $align: flex-start, $gap: 1em);	// Inkluderar flex i kolumn
+	margin: 3em;
+	
+	// Filtreringsformulär
+	form{
+		// Simpel flex utan @include 
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;	// Förhindrar för små rutor och overflow
+		gap: 1em;
+		background-color: $articleColor;
+		padding: 1em;
+		border-radius: 3em;
+		box-shadow: $boxShadow;
+
+		input{
+			outline: none;	// Tar bort automatisk outline
+			border: solid 4px $purpleColor;
+			border-radius: 1em;
+			padding: 0.1em 0.5em;
+			background-color: $backgroundColor;
+
+			// Formulärknapp
+			&:last-of-type{
+				background-color: $purpleColor;
+				color: white;
+				cursor: pointer;
+
+				&:hover{
+					filter: brightness(120%);
+				}
+			}
+		}
+	}
+
+	// Brytpunkt där styling för main och form ändras
+	@media all and (max-width: 650px){
+		margin: 1em;
+
+		form{
+			border-radius: 1em;
+		}
+	}
+
+	// Huvudsakligen hotellerbjudandenas styling
+	article{
+		// Utnyttjar grid
+		display: grid;
+		grid-template-columns: 3fr 4fr 3fr;	// Textinnehåll får större yta
+		gap: 2em;
+		background-color: $articleColor;
+		padding: 1em;
+		border-radius: 3em;
+		box-shadow: $boxShadow;
+
+		.imageDivider{
+			width: 100%;
+			min-width: 330px;	// Blir inte för liten
+			position: relative;	// Parent till pildivider. Krävs för pilarnas positionering.
+			display: grid;
+			background-color: $greyColor;
+			padding: 1em;
+			border-radius: 2em;
+			gap: 1em;
+			grid-template-columns: 1fr 1fr 1fr;
+
+			picture{
+				opacity: 60%;
+
+				&:hover{
+					opacity: 100%;
+				}
+
+				// Den stora bilden i bildspelet
+				&:nth-of-type(1){
+					grid-column: 1/4;	// Blir given större yta i grid
+					opacity: 100%;	// Ska alltid vara synlig
+
+					img{
+						cursor: auto;	// Första bild inte "klickbar"
+					}
+				}
+
+				img{
+					width: 100%;
+					height: 100%;
+					cursor: pointer;	// Klickbar
+					border-radius: 1em;
+					object-fit: cover;	// Förhindrar stretchning av bild. Centrerar bilden i minskande ruta.
+				}
+
+			}
+
+			// Klass tilldelas av javascript. Ger en Highlight på vald bild i bildspelet.
+			.selected{
+				opacity: 100%;
+			}
+
+			// Innehåller bildspelspilar
+			.arrowDivider{
+				position: absolute;	// För postionering ovanpå bildspel
+				width: 100%;
+				// Centreras på bildspelets höjd
+				top: 50%;
+				transform: translateY(-50%);
+				// Simpel flex utan @include
+				display: flex;
+				justify-content: space-between;
+
+				// Pilarna är divelement
+				div{
+					width: 0px;
+					height: 0px;
+					// Border används för storlek och färg för att skapa en triangulär form
+					border-bottom: solid 30px $backgroundColor;
+					border-right: solid 30px transparent;
+					// Skugga används som border då border fyller annat syfte
+					box-shadow: -2px 2px 0 2px $purpleColor;
+					cursor: pointer;	// Klickbar
+					margin: 1em;
+				}
+
+				// Respektive pil roteras
+				.left{
+					transform: rotate(45deg);
+				}
+				.right{
+					transform: rotate(-135deg);
+				}
+			}
+		}
+
+		.listDivider{
+			// Grid-rader används för uppdelning av hotellerbjudandets texter
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-auto-rows: min-content min-content auto;	// Raden med h4 blir fyller nedåt
+			gap: 1em;
+
+			// ul får en grid, list items fördelas på tre kolumner
+			ul{
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				row-gap: 2em;
+			}
+
+			h4{
+				align-self: flex-end;	// Positioneras längst ned i sin utfyllda row
+			}
+		}
+
+		// Google maps embed
+		.g-mapHolder{
+			min-width: 330px;	// Förhindrar liten ruta
+			padding: 1em;	// Agerar som en border
+			background-color: $greyColor;
+			border-radius: 2em;
+
+			iframe{
+				border-radius: 1em;
+				height: 100%;
+				width: 100%;
+				border: none;
+			}
+		}
+
+		// Brytpunkter med ändrad styling för article och barn
+
+		// Två kolumner
+		@media all and (max-width: 1300px){
+			grid-template-columns: 1fr 1fr;
+		
+			// Längst ned i grid, tar upp hela botten
+			.g-mapHolder{
+				grid-column: 1/3;
+			}
+		}
+
+		// En kolumn
+		@media all and (max-width: 1000px){		
+			grid-template-columns: 1fr;
+		
+			.listDivider{
+				.desc{
+					ul{
+						margin-bottom: 1em;
+					}
+				}
+			}
+		
+			// Längst ned i grid, tar upp hela botten
+			.g-mapHolder{
+				grid-column: 1/2;
+			}	
+		}
+
+		// Stylar och tar bort overflow
+		@media all and (max-width: 650px){
+			border-radius: 1em;
+
+			.imageDivider{
+				min-width: 0;	// Förhindrar overflow
+				gap: 0.5em;
+			}
+
+			.g-mapHolder{
+				min-width: 0;	// Förhindrar overflow
+			}
+		}
+	}
+
+	// Separat styling för article-taggar med bokningsalternativ
+	.booking{
+		padding: 1em;
+		width: 100%;
+		grid-template-columns: 1fr;	// Ändrar sitt grid-format från tidigare article-styling
+		gap: 1em;
+
+		.alternativeContainer{
+			// Alternativ fördelas på tre separata kolumner
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			gap: 2em;
+
+			.alternative{
+				display: none;	// Per automatik osynlig för javascript dropdown
+				grid-template-columns: 1fr 1fr;	// Delar upp titel och information i två kolumner för varje alternativ
+				gap: 1em;
+
+				&:nth-of-type(-n+3){
+					display: grid;	// De tre första elementen i grid är synlig
+				}
+
+				// Information/Detalj, ex. Antal rum
+				p{
+					text-align: center;
+					background-color: $backgroundColor;
+					border-radius: 1em;
+				}		
+
+				// Bokaknapp
+				a{	
+					@include button;	// Inkluderar knapp-styling
+					padding: 0.2em 0.3em;
+					border-radius: 1em;
+					text-align: center;
+					grid-column: 1/3;	// Längst ned i grid, tar upp hela botten
+				}
+			}
+
+			.alternativeShow{
+				display: grid !important;	// !important används för att överskriva @media utan separat kod i vardera @media
+			}
+
+			// Brytpunkter med ändrad styling för .alternativeContainer och barn
+			// Två kolumner
+			@media all and (max-width: 1300px){			
+				grid-template-columns: 1fr 1fr;	// Minskar antalet kolumner i grid
+		
+				.alternative:nth-of-type(3){	// Inte längre del av rad ett i grid
+					display: none;	// Blir osynlig
+				}
+			}
+
+			// En kolumn
+			@media all and (max-width: 830px){
+				grid-template-columns: 1fr;
+			
+				.alternative:nth-of-type(2){
+						display: none;
+				}
+			}
+		}
+
+		// Knapp för dropdown-meny
+		.readMore{
+			p{
+				width: fit-content;
+				cursor: pointer;	// Klickbar
+				margin-left: 1em;
+			}
+		}
+	}	
+}		
